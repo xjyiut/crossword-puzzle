@@ -1,0 +1,151 @@
+{
+  "title": "Inclusive Leadership",
+  "subtitle": "Solve the grid, then unscramble the circled letters.",
+  "options": {
+    "numbering": "clueOrder",
+    "padding": 1,
+    "layoutAttempts": 400,
+    "seed": 20260802,
+    "allowDirectionFlip": false
+  },
+  "across": [
+    {
+      "id": "coach",
+      "clue": "A leader who acts as a guide.",
+      "answer": "COACH",
+      "row": 1,
+      "col": 0
+    },
+    {
+      "id": "in",
+      "clue": "If you are not out you are __.",
+      "answer": "IN",
+      "row": 8,
+      "col": 2
+    },
+    {
+      "id": "se",
+      "clue": "A versatile pronoun used in Spanish.",
+      "answer": "SE",
+      "row": 1,
+      "col": 6
+    }
+  ],
+  "down": [
+    {
+      "id": "civil",
+      "clue": "A synonym for polite.",
+      "answer": "CIVIL",
+      "row": 1,
+      "col": 0
+    },
+    {
+      "id": "ha",
+      "clue": "The beginning of a laugh.",
+      "answer": "HA",
+      "row": 1,
+      "col": 4
+    },
+    {
+      "id": "onit",
+      "clue": "A response to a leader after given an assignment.",
+      "answer": "ON IT",
+      "row": 1,
+      "col": 1
+    },
+    {
+      "id": "cheese",
+      "clue": "It sits on a board.",
+      "answer": "CHEESE",
+      "row": 1,
+      "col": 3
+    },
+    {
+      "id": "haste",
+      "clue": "It is often the cause of many mistakes.",
+      "answer": "HASTE",
+      "row": 0,
+      "col": 2
+    },
+    {
+      "id": "vines",
+      "clue": "Where wine begins.",
+      "answer": "VINES",
+      "row": 7,
+      "col": 2
+    },
+    {
+      "id": "et",
+      "clue": "He came from outer space.",
+      "answer": "ET",
+      "row": 3,
+      "col": 6
+    },
+    {
+      "id": "vie",
+      "clue": "Companies do this for market share or contracts.",
+      "answer": "VIE",
+      "row": 3,
+      "col": 5
+    }
+  ],
+  "bonus": {
+    "enabled": true,
+    "riddle": "I'm born from understanding, nurtured by respect. A bridge that spans divisions, a heart that won't neglect. I'm found in every culture, every creed, every race. A universal language, a welcoming space.",
+    "instruction": "Put the highlighted letters of the crossword together and add the letter “U” to find your answer.",
+    "letters": [
+      {
+        "wordId": "coach",
+        "letterIndex": 0
+      },
+      {
+        "wordId": "se",
+        "letterIndex": 0
+      },
+      {
+        "wordId": "se",
+        "letterIndex": 1
+      },
+      {
+        "wordId": "civil",
+        "letterIndex": 2
+      },
+      {
+        "wordId": "onit",
+        "letterIndex": 2
+      },
+      {
+        "wordId": "vie",
+        "letterIndex": 1
+      },
+      {
+        "wordId": "civil",
+        "letterIndex": 4
+      },
+      {
+        "wordId": "in",
+        "letterIndex": 1
+      }
+    ],
+    "extraLetters": [
+      "U"
+    ],
+    "answer": "INCLUSIVE"
+  },
+  "messages": {
+    "gridAttempts": [
+      "Oops, that's not it!",
+      "Close, but not quite!",
+      "Keep trying! You're getting closer!"
+    ],
+    "gridExhausted": "Great effort!",
+    "bonusWrong": "Keep trying! You're getting closer!",
+    "giveUpConfirm": "Are you sure? Remember, you won't get any points for this activity if you pass.",
+    "bonusReveal": "Correct answer to this activity is \"{answer}\"",
+    "bonusCorrect": "Bang on! You got that right!",
+    "labelTryAgain": "Try again",
+    "labelShowAnswer": "Show Answer",
+    "labelGiveUp": "I give up",
+    "labelContinue": "Continue"
+  }
+}
