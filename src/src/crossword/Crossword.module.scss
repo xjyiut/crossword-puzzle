@@ -47,7 +47,6 @@
     min-width: 0;
     min-height: 0;
     font-family: inherit;
-    text-transform: none;
     -webkit-appearance: none;
     appearance: none;
   }
@@ -63,7 +62,10 @@
   h3,
   p {
     margin: 0;
+    padding: 0;
     font-family: inherit;
+    text-decoration: none;
+    border: 0;
   }
 
   ol,
@@ -121,9 +123,12 @@
 .sidePane {
   flex: 1 1 380px;
   min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  max-width: 100%;
+  display: block;   // plain block flow: nothing to collapse or reorder
+}
+
+.sidePane > * {
+  margin-bottom: 18px;
 }
 
 /* ------------------------------ grid ------------------------------ */
@@ -137,14 +142,14 @@
 }
 
 /* Empty squares still show the lattice, as in the original puzzle. */
-.blank {
+.grid .blank {
   width: var(--cw-cell-size, 46px);
   height: var(--cw-cell-size, 46px);
   border-right: 1px solid var(--cw-blank-line, rgba(255, 255, 255, 0.26));
   border-bottom: 1px solid var(--cw-blank-line, rgba(255, 255, 255, 0.26));
 }
 
-.cell {
+.grid .cell {
   position: relative;
   width: var(--cw-cell-size, 46px);
   height: var(--cw-cell-size, 46px);
@@ -169,15 +174,15 @@
   }
 }
 
-.inWord {
+.grid .inWord {
   background: var(--cw-cell-word, #fdf1c6);
 }
 
-.cursor {
+.grid .cursor {
   background: var(--cw-cell-cursor, #f7d97e);
 }
 
-.wrong {
+.grid .wrong {
   background: var(--cw-cell-wrong, #ffc6c1);
   color: #a3161b;
 }
@@ -227,7 +232,7 @@
 
 /* Circled squares. Only drawn once the grid is solved and the riddle is
    on screen -- during play they would give the bonus answer away. */
-.bonus::after {
+.grid .bonus::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -262,38 +267,59 @@
 /* ------------------------------ clues ----------------------------- */
 
 .clueGroup {
+  display: block;
+  width: 100%;
   min-width: 0;
+  margin-bottom: 4px;
 }
 
 .clueHeading {
+  display: block;
+  width: 100%;
   margin: 0 0 8px;
   font-size: 25px;
   font-weight: 400;
+  line-height: 1.3;
 }
 
 .clueList {
+  display: block;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .clue {
+  display: block;
+  position: static;
+  float: none;
+  clear: both;
+  width: 100%;
+  height: auto;
   margin: 0 0 3px;
+  padding: 0;
 }
 
-.clueButton {
-  display: flex;
-  gap: 9px;
-  align-items: baseline;
+.clueList .clueButton {
+  display: block;
+  position: static;
+  float: none;
   width: 100%;
-  padding: 5px 10px;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 6px 10px;
   border: 0;
   border-radius: 3px;
   background: transparent;
   color: inherit;
   font: inherit;
   font-size: 17px;
+  line-height: 1.35;
   text-align: left;
+  white-space: normal;
+  overflow: visible;
   cursor: pointer;
 
   &:hover {
@@ -308,28 +334,31 @@
 }
 
 .clueNumber {
-  flex: 0 0 auto;
+  display: inline;
+  margin-right: 7px;
   color: var(--cw-accent, #55cbf7);
   font-weight: 600;
 }
 
 .clueActive .clueNumber,
-.clueButton:hover .clueNumber {
+.clueList .clueButton:hover .clueNumber {
   color: #0f6fb8;
 }
 
 .clueText {
-  flex: 1 1 auto;
+  display: inline;
 }
 
 .tick {
-  flex: 0 0 auto;
+  display: inline;
+  margin-left: 7px;
   color: var(--cw-tick, #5ce08b);
   font-weight: 700;
 }
 
 .cross {
-  flex: 0 0 auto;
+  display: inline;
+  margin-left: 7px;
   color: #ff8a80;
   font-weight: 700;
 }
@@ -394,7 +423,7 @@
   align-items: stretch;
 }
 
-.answerInput {
+.answerRow .answerInput {
   flex: 1 1 260px;
   min-width: 200px;
   padding: 12px 14px;
@@ -419,7 +448,7 @@
   margin-top: 6px;
 }
 
-.submit {
+.crossword .submit {
   padding: 13px 44px;
   border: 2px solid var(--cw-accent, #55cbf7);
   border-radius: 8px;
@@ -443,7 +472,7 @@
   }
 }
 
-.secondary {
+.crossword .secondary {
   padding: 12px 20px;
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 8px;
@@ -508,7 +537,7 @@
   justify-content: center;
 }
 
-.dialogButton {
+.dialogButtons .dialogButton {
   padding: 11px 30px;
   border: 2px solid var(--cw-accent, #55cbf7);
   border-radius: 8px;
@@ -525,7 +554,7 @@
   }
 }
 
-.dialogButtonSecondary {
+.dialogButtons .dialogButtonSecondary {
   border-color: rgba(255, 255, 255, 0.5);
   box-shadow: none;
 

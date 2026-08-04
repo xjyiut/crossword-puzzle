@@ -10,7 +10,7 @@ import './global.scss';
 ReactDOM.render(
   <React.StrictMode>
     <div className="app">
-      <Crossword showWarnings={true} />
+      <Crossword showWarnings={true} showHeader={true} showReset={true} />
     </div>
   </React.StrictMode>,
   document.getElementById('root')

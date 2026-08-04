@@ -15,6 +15,13 @@ export interface ICrosswordProps {
   cellSize?: number;
   /** Show data problems (bad pins, unplaceable words). Defaults to true. */
   showWarnings?: boolean;
+  /**
+   * Render the title / subtitle above the grid. Off by default: the source
+   * puzzle has no heading, and a host page usually supplies its own.
+   */
+  showHeader?: boolean;
+  /** Render the Reset button next to Submit. Off by default. */
+  showReset?: boolean;
   /** Fires once the activity is finished, however it ended. */
   onSolved?: () => void;
 }
@@ -49,10 +56,12 @@ const Crossword: React.FC<ICrosswordProps> = (props: ICrosswordProps) => {
 
   return (
     <div className={styles.crossword} style={style}>
-      <header className={styles.header}>
-        <h2 className={styles.title}>{model.title}</h2>
-        {model.subtitle ? <p className={styles.subtitle}>{model.subtitle}</p> : null}
-      </header>
+      {props.showHeader ? (
+        <header className={styles.header}>
+          <h2 className={styles.title}>{model.title}</h2>
+          {model.subtitle ? <p className={styles.subtitle}>{model.subtitle}</p> : null}
+        </header>
+      ) : null}
 
       {props.showWarnings !== false && model.warnings.length > 0 ? (
         <ul className={styles.warnings}>
@@ -100,9 +109,11 @@ const Crossword: React.FC<ICrosswordProps> = (props: ICrosswordProps) => {
               </button>
             ) : null}
 
-            <button type="button" className={styles.secondary} onClick={api.reset}>
-              Reset
-            </button>
+            {props.showReset ? (
+              <button type="button" className={styles.secondary} onClick={api.reset}>
+                Reset
+              </button>
+            ) : null}
           </div>
         </div>
       </div>
