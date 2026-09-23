@@ -1,0 +1,295 @@
+@use '../styles/variables' as *;
+
+// --- Hud ---------------------------------------------------------------
+
+.banner {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 1004px;
+  height: 95px;
+  background: $color-bg;
+  border: 4px solid $color-hud-border;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.row {
+  position: absolute;
+  left: 20px;
+  color: $color-hud-text;
+  font-family: $font-arcade;
+  font-size: 26px;
+  white-space: nowrap;
+}
+
+.row1 {
+  top: 12px;
+}
+
+.row2 {
+  top: 55px;
+}
+
+.score {
+  left: 20px;
+}
+
+.hi {
+  left: 310px;
+}
+
+.stageLabel {
+  left: 640px;
+}
+
+.bonus {
+  left: 20px;
+  color: $color-hud-accent;
+}
+
+.lives {
+  position: absolute;
+  top: 14px;
+  right: 24px;
+  display: flex;
+  gap: 4px;
+}
+
+.lifeIcon {
+  image-rendering: pixelated;
+}
+
+// --- DistanceMeters ------------------------------------------------------
+
+.meter {
+  position: absolute;
+  top: 690px;
+  width: 130px;
+  height: 50px;
+  background: $color-bg;
+  border: 5px solid $color-hud-border;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  color: $color-hud-text;
+  font-family: $font-arcade;
+  font-size: 30px;
+}
+
+// --- MainMenu --------------------------------------------------------------
+
+.menu {
+  position: absolute;
+  inset: 0;
+  background: $color-bg;
+}
+
+.stars {
+  position: absolute;
+  left: 130px;
+  top: 100px;
+  width: 770px; // 154 * 5
+  height: 350px; // 70 * 5
+  image-rendering: pixelated;
+}
+
+.logo {
+  position: absolute;
+  left: 250px;
+  top: 170px;
+  width: 510.4px; // 638 * 0.8
+  height: 182.4px; // 228 * 0.8
+  image-rendering: pixelated;
+}
+
+.pressEnter {
+  position: absolute;
+  left: 332px;
+  top: 504px;
+  color: $color-hud-text;
+  font-family: $font-arcade;
+  font-size: 50px;
+  text-align: center;
+  line-height: 1.2;
+  white-space: pre;
+}
+
+@keyframes runAcross {
+  from {
+    left: 100px;
+  }
+  to {
+    left: 1200px;
+  }
+}
+
+.clown {
+  position: absolute;
+  top: 600px;
+  left: 100px;
+  image-rendering: pixelated;
+  animation: runAcross 11s linear forwards;
+}
+
+.summary {
+  position: absolute;
+  left: 112px;
+  top: 630px;
+  width: 800px;
+  height: 100px;
+  background: $color-bg;
+  border: 4px solid $color-hud-border;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.summaryResult {
+  color: $color-hud-accent;
+  font-family: $font-arcade;
+  font-size: 28px;
+}
+
+.summaryStats {
+  display: flex;
+  gap: 24px;
+  color: $color-hud-text;
+  font-family: $font-arcade;
+  font-size: 24px;
+}
+
+// --- Prestage ------------------------------------------------------------
+
+.prestage {
+  position: absolute;
+  inset: 0;
+  background: $color-bg;
+}
+
+.text {
+  position: absolute;
+  left: 412px;
+  top: 334px;
+  color: $color-hud-text;
+  font-family: $font-arcade;
+  font-size: 48px;
+  white-space: nowrap;
+}
+
+// --- RunHud --------------------------------------------------------------
+
+.runHud {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+  padding: 8px 16px;
+  background: rgba(4, 20, 20, 0.85);
+  border: 3px solid $color-teal;
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(43, 224, 216, 0.45);
+  color: $color-teal;
+  font-family: $font-arcade;
+  font-size: 20px;
+}
+
+.pillIcon {
+  font-size: 18px;
+}
+
+.livesPill {
+  min-width: unset;
+}
+
+.livesLabel {
+  white-space: nowrap;
+}
+
+.livesIcons {
+  display: flex;
+  gap: 4px;
+}
+
+.lifeIcon {
+  image-rendering: pixelated;
+}
+
+// --- GameOverOverlay -------------------------------------------------------
+
+.gameOverOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.gameOverBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 60px;
+  background: rgba(4, 20, 20, 0.92);
+  border: 4px solid $color-teal;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(43, 224, 216, 0.5);
+}
+
+.gameOverTitle {
+  color: $color-teal;
+  font-family: $font-arcade;
+  font-size: 48px;
+  text-shadow: 0 0 12px rgba(43, 224, 216, 0.7);
+}
+
+.gameOverSubtitle {
+  color: $color-hud-text;
+  font-family: $font-arcade;
+  font-size: 22px;
+}
+
+.gameOverStats {
+  display: flex;
+  gap: 32px;
+  color: $color-teal;
+  font-family: $font-arcade;
+  font-size: 20px;
+}
+
+.gameOverButton {
+  margin-top: 10px;
+  padding: 10px 24px;
+  background: transparent;
+  border: 3px solid $color-teal;
+  border-radius: 999px;
+  color: $color-teal;
+  font-family: $font-arcade;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.gameOverButton:hover {
+  background: rgba(43, 224, 216, 0.15);
+}

@@ -1,0 +1,17 @@
+// Canvas / stage dimensions - matches the original game's fixed 1024x768 stage.
+$screen-width: 1024px;
+$screen-height: 768px;
+
+$sprite-scale: 3;
+
+// Retro HUD palette, matching the original build's colours exactly.
+$color-bg: #000;
+$color-hud-border: #d42700;
+$color-hud-text: #fff;
+$color-hud-accent: #ff2477;
+
+// Run-stats HUD (time/points/lives boxes) - a teal accent, kept distinct
+// from the original red HUD bar it's standing in for.
+$color-teal: #2be0d8;
+
+$font-arcade: 'arcadeclasic', 'Courier New', monospace;

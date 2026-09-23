@@ -1,0 +1,31 @@
+@use './variables' as *;
+@use './fonts';
+
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: $color-bg;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  background: $color-bg;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
